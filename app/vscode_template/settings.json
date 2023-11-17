@@ -1,0 +1,5 @@
+{
+  "cmake.generator": "Eclipse CDT4 - Ninja",
+  "cmake.sourceDirectory": "${workspaceFolder}/src",
+  "cmake.buildDirectory": "${workspaceFolder}/build"
+}

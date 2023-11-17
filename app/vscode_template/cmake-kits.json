@@ -1,0 +1,1 @@
+[{"name": "RTEMS", "toolchainFile": "REPLACE_BOARD_INSTALL_DIR/cmake/toolchain.cmake"}]
