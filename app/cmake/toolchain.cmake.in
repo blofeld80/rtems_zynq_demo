@@ -56,7 +56,7 @@ set(RTEMS_LINK_FLAGS_LIST -B${RTEMS_LIB_DIR} ${RTEMS_LIBBSD_LINK_FLAGS} -specs=$
 # Compile the init file if it has changed or the obj file does not exist
 set(RTEMS_INIT_C_FILE_OBJ "${RTEMS_LIB_DIR}/init_dummy.obj")
 
-set(RTEMS_INIT_C_FILE "REPLACE_APP_FOLDER/src/pre_main.c")
+set(RTEMS_INIT_C_FILE "REPLACE_APP_FOLDER/src/main/pre_main.c")
 
 if(NOT EXISTS ${RTEMS_INIT_C_FILE_OBJ}) 
   if(NOT DEFINED RTEMS_INIT_C_FILE)
