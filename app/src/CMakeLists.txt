@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.18.4)
 project(ZynqDemo)
 
-
+# Wipe out the flags that have been set to make the compiler tests work and to optionally build some libraries on top of libbsd
 set(CMAKE_EXE_LINKER_FLAGS ""  CACHE INTERNAL "exe link flags" FORCE)
 set(CMAKE_C_FLAGS_RELEASE ""  CACHE INTERNAL "c flags" FORCE)
 set(CMAKE_CXX_FLAGS_RELEASE ""  CACHE INTERNAL "c++ flags" FORCE)
@@ -30,11 +30,22 @@ target_compile_options(${PROJECT_NAME}
   $<$<COMPILE_LANGUAGE:C>:$<$<CONFIG:MinSizeRel>:SHELL:${RTEMS_CMAKE_APPLICATION_C_FLAGS_MINSIZEREL}>>
 )
 
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_OBJCOPY}  $<TARGET_FILE:${PROJECT_NAME}> $<TARGET_FILE_BASE_NAME:${PROJECT_NAME}>.exe    
+    COMMAND ${CMAKE_OBJCOPY} --only-keep-debug $<TARGET_FILE:${PROJECT_NAME}> $<TARGET_FILE_BASE_NAME:${PROJECT_NAME}>.dbg
+    COMMAND ${CMAKE_OBJCOPY} --strip-unneeded $<TARGET_FILE:${PROJECT_NAME}>
+    COMMAND ${CMAKE_OBJCOPY} --add-gnu-debuglink=$<TARGET_FILE_BASE_NAME:${PROJECT_NAME}>.dbg $<TARGET_FILE:${PROJECT_NAME}>
+    WORKING_DIRECTORY $<TARGET_FILE_DIR:${PROJECT_NAME}>
+    COMMENT "Splitting off debug symbols from ${PROJECT_NAME}"
+)
 
-
+# if you use -G"Unix Makefiles" you'll receive a more verbose output, doesnt work well for ninja
+# call ninja -v to get more info
 set(CMAKE_VERBOSE_MAKEFILE on)
-set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_BINARY_DIR}/../install)
 set(CMAKE_EXECUTABLE_SUFFIX ".elf")
 
-
-install(DIRECTORY $<TARGET_FILE:${PROJECT_NAME}> DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+# add an install target - not required
+set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_BINARY_DIR}/../install)
+install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/$<TARGET_FILE_BASE_NAME:${PROJECT_NAME}>.exe DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/$<TARGET_FILE_BASE_NAME:${PROJECT_NAME}>.elf DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/$<TARGET_FILE_BASE_NAME:${PROJECT_NAME}>.dbg DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
