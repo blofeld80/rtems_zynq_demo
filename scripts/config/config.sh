@@ -19,7 +19,7 @@ if [ ! -d "${HW_INSTALL_DIR}" ];   then mkdir -p ${HW_INSTALL_DIR} ; fi
 #################################################
 ## RTEMS build config
 RTEMS_BSP_ARCH=arm
-RTEMS_BSP_NAME=xilinx_zynq_pynq
+#RTEMS_BSP_NAME=xilinx_zynq_pynq
 
 
 #################################################
@@ -49,7 +49,7 @@ QEMU_INSTALL_DIR=${TOP_INSTALL_DIR}/qemu
 RTEMS_LIBBSD_GIT_REPO=https://github.com/RTEMS/rtems-libbsd.git
 RTEMS_LIBBSD_SRC_DIR=${TOP_SOURCE_DIR}/rtems-libbsd
 RTEMS_LIBBSD_VER_COMMIT=e07b74b88af55df551046bd1beb775f843a96fe5
-RTEMS_LIBBSD_INSTALL_DIR=${SW_INSTALL_DIR}/{RTEMS_BSP_NAME}/rtems-libbsd
+RTEMS_LIBBSD_INSTALL_DIR=${SW_INSTALL_DIR}/${RTEMS_BSP_NAME}/rtems-libbsd
 
 
 #################################################
