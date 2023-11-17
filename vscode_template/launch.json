@@ -15,7 +15,7 @@
       "customLaunchSetupCommands": [
         {"text": "set breakpoint pending on"},
         {"text": "exec-file '${workspaceRoot}/build/ZynqDemo.elf'"},
-        {"text": "symbol-file '${workspaceRoot}/build/ZynqDemo.elf'"},
+        {"text": "symbol-file '${workspaceRoot}/build/ZynqDemo.dbg'"},
         {"text": "target remote localhost:1234"},
         {"text": "load  '${workspaceRoot}/build/ZynqDemo.elf'"},
         {"text": "break  bsp_reset"},
@@ -43,7 +43,7 @@
       "customLaunchSetupCommands": [
         {"text": "set breakpoint pending on"},
         {"text": "exec-file '${workspaceRoot}/build/ZynqDemo.elf'"},
-        {"text": "symbol-file '${workspaceRoot}/build/ZynqDemo.elf'"},
+        {"text": "symbol-file '${workspaceRoot}/build/ZynqDemo.dbg'"},
         {"text": "target remote localhost:1234"},
         {"text": "load  '${workspaceRoot}/build/ZynqDemo.elf'"},
         //{"text": "monitor reset"},
