@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "name": "ZynqDemo",
+            "intelliSenseMode": "gcc-arm",
+            "compilerPath": "REPLACE_TOOL_INSTALL_DIR/toolchain/bin/arm-rtems6-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++14",
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            }
+        }
+    ],
+    "version": 4
+}
