@@ -33,7 +33,7 @@ RTEMS_TOOLCHAIN_INSTALL_DIR=${TOOL_INSTALL_DIR}/toolchain
 ## RTEMS
 RTEMS_OS_GIT_REPO=https://github.com/blofeld80/rtems.git
 RTEMS_OS_SRC_DIR=${TOP_SOURCE_DIR}/rtems
-RTEMS_OS_VER_COMMIT=feature/add_zynq_boards
+RTEMS_OS_VER_COMMIT=feature/add_zynq_boards_2
 RTEMS_OS_INSTALL_DIR=${SW_INSTALL_DIR}/${RTEMS_BSP_NAME}/rtems
 
 #################################################
