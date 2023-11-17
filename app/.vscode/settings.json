@@ -1,5 +1,0 @@
-{
-  "cmake.generator": "Eclipse CDT4 - Ninja",
-  "cmake.sourceDirectory": "~/rtems_zynq_demo/app/src",
-  "cmake.buildDirectory": "~/rtems_zynq_demo/app/build",
-}
