@@ -32,25 +32,19 @@ SPDX-License-Identifier: CC-BY-SA-4.0 or BSD-2-Clause
 
     3.3. [Create the Application](#cm_c) 
 
-
-2. [Xilinx QEMU](#qemu)
-
-    2.1. [Running `xilinx-zynq-a9` on QEMU (deprecated?)](#qemu_deprecated)
-
-    2.2. [Running machines defined by a devicetree](#qemu_hardware)
-
-    2.3. [Create a CMake based application](#cmake)
-
-    * 2.3.1. [Build RTEMS and Libbsd](#cm_a)
-
-    * 2.3.2. [Install VS Code and required extensions](#cm_b)
-
-    * 2.3.3. [Create a CMake Toolchain File](#cm_c)
+    3.4. [Install VS Code and required extensions](#cm_d) 
 
 
-    2.4. [Debug applications running on QEMU](#qemu_software)
 
-    2.2. [Debug applications running on target hardware](#hwsetup_debug)
+4. [Xilinx QEMU](#qemu)
+
+    4.1. [Running `xilinx-zynq-a9` on QEMU (deprecated?)](#qemu_deprecated)
+
+    4.2. [Running machines defined by a devicetree](#qemu_hardware)
+
+    4.3. [Debug applications running on QEMU](#qemu_software)
+
+
 
 4. [Appendix](#appendix)
 
@@ -453,6 +447,8 @@ The application can be found in the `app` folder an is componsed of three parts:
 * `pre_main.c` RTEMS initalization and jump to main
 * `CMakeLists.txt` the CMake build script
 
+Test the build:
+
 ```
 blofeld@ubuntu:~/rtems_zynq_demo/$ cd app
 blofeld@ubuntu:~/rtems_zynq_demo/app/$ mkdir build && cd build
@@ -490,8 +486,13 @@ UNEXPECTED_SECTIONS:          0 GB         0 GB
 
 ```
 
+The CMake build will create three binaries:
+1. `ZynqDemo.exe` - file contains code and debug symbols
+2. `ZynqDemo.dbg` - file contains the debug symbols but no application code
+3. `ZynqDemo.elf` - file contains application code but not debug symbols
 
-### 3.2. Install VS Code and required extensions <a name="vsc"></a> 
+
+### 3.4. Install VS Code and required extensions <a name="cm_d"></a> 
 
 VS Code can be installed from [here](https://code.visualstudio.com/download). Start VS Code and install the following extensions:
 
