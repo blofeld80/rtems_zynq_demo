@@ -1,0 +1,49 @@
+/dts-v1/;
+/include/ "zynq-7000.dtsi"
+
+/ {
+	model = "Avnet PicoZed";
+	compatible = "avnet,picozed", "xlnx,zynq-7000";
+
+	aliases {
+		serial0 = &uart1;
+	};
+
+	memory@0 {
+		device_type = "memory";
+		reg = <0x0 0x40000000>;
+	};
+
+	chosen {
+		bootargs = "earlyprintk";
+		stdout-path = "serial0:115200n8";
+	};
+
+};
+
+&sdhci1 {
+	status = "okay";
+	/* SD1 is onnected to a non-removable eMMC flash device */
+	non-removable;
+};
+
+&uart1 {
+	status = "okay";
+};
+
+
+&qspi {
+	status = "okay";
+	primary_flash: ps7-qspi@0 {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		compatible = "micron,m25p80", "spansion,    ", "jedec,spi-nor";
+		reg = <0x0>;
+		spi-max-frequency = <50000000>;
+		/* Example 16M partition table using U-Boot + U-Boot SPL */
+		partition@0 {
+			label = "boot";
+			reg = <0x0 0x800000>;
+		};
+	};
+}; 

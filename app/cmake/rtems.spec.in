@@ -1,0 +1,8 @@
+  *endfile:
+  crtend%O%s crtn%O%s %{!qnolinkcmds:-T linkcmds%s}
+
+  *lib:
+  --start-group -lrtemsbsp -lrtemscpu -latomic -lc -lgcc @RTEMS_LIBBSD_ENABLED@ -lm -lz --end-group
+
+  *startfile:
+  crti%O%s crtbegin%O%s 

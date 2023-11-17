@@ -1,0 +1,55 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "cppdbg",
+      "request": "launch",
+      "name": "QEMU Debug Session",
+      "targetArchitecture": "arm",
+      "program": "${workspaceFolder}/build/ZynqDemo.elf",
+      "miDebuggerPath": "~/quick-start/install/toolchain/bin/arm-rtems6-gdb",
+      "cwd": "${workspaceFolder}/build",
+      "externalConsole": false,
+      "stopAtEntry": true,
+      "MIMode": "gdb",
+      "customLaunchSetupCommands": [
+        {"text": "set breakpoint pending on"},
+        {"text": "exec-file '${workspaceRoot}/build/ZynqDemo.elf'"},
+        {"text": "symbol-file '${workspaceRoot}/build/ZynqDemo.elf'"},
+        {"text": "target remote localhost:1234"},
+        {"text": "load  '${workspaceRoot}/build/ZynqDemo.elf'"},
+        {"text": "break  bsp_reset"},
+      ],
+      "preLaunchTask": "Start QEMU (waiting for GDB connection)",
+      //"logging": {
+      //  "trace": false,
+      //  "traceResponse": true,
+      //  "engineLogging": true
+      //}
+    },
+    {
+      "type": "cppdbg",
+      "request": "launch",
+      "name": "PicoZed OpenOCD Debug Session",
+      "targetArchitecture": "arm",
+      "program": "${workspaceFolder}/build/ZynqDemo.elf",
+      "miDebuggerPath": "~/quick-start/install/toolchain/bin/arm-rtems6-gdb",
+      "cwd": "${workspaceFolder}/build",
+      "externalConsole": false,
+      "stopAtEntry": true,
+      "MIMode": "gdb",
+      //"debugServerPath": "~/quick-start/install/openocd/bin/openocd",
+      //"debugServerArgs": "-f ${workspaceRoot}/dbg/pynq.cfg",
+      "customLaunchSetupCommands": [
+        {"text": "set breakpoint pending on"},
+        {"text": "exec-file '${workspaceRoot}/build/ZynqDemo.elf'"},
+        {"text": "symbol-file '${workspaceRoot}/build/ZynqDemo.elf'"},
+        {"text": "target remote localhost:1234"},
+        {"text": "load  '${workspaceRoot}/build/ZynqDemo.elf'"},
+        //{"text": "monitor reset"},
+        {"text": "break  _start"},
+      ],
+      //"preLaunchTask": "Start QEMU (waiting for GDB connection)",
+    },
+  ]
+}
