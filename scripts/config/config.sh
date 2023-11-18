@@ -41,7 +41,7 @@ RTEMS_OS_INSTALL_DIR=${SW_INSTALL_DIR}/${RTEMS_BSP_NAME}/rtems
 QEMU_GIT_REPO=https://github.com/Xilinx/qemu.git
 QEMU_SRC_DIR=${TOP_SOURCE_DIR}/qemu
 QEMU_VER_COMMIT="xilinx_v2023.2"
-QEMU_INSTALL_DIR=${TOP_INSTALL_DIR}/qemu
+QEMU_INSTALL_DIR=${TOOL_INSTALL_DIR}/qemu
 
 
 #################################################
@@ -54,7 +54,7 @@ RTEMS_LIBBSD_INSTALL_DIR=${SW_INSTALL_DIR}/${RTEMS_BSP_NAME}/rtems-libbsd
 
 #################################################
 ## Eclipse
-ECLIPSE_INSTALL_DIR=${TOP_INSTALL_DIR}/eclipse
+ECLIPSE_INSTALL_DIR=${TOOL_INSTALL_DIR}/eclipse
 ECLIPSE_SRC_DIR=${TOP_SOURCE_DIR}/eclipse
 ECLIPSE_SRC_REPO=http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/2023-09/R/
 ECLIPSE_TAR_NAME=eclipse-embedcpp-2023-09-R-linux-gtk-x86_64.tar.gz
