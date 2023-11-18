@@ -57,22 +57,22 @@ if [ ! -d "${OPENOCD_INSTALL_DIR}" ]; then
 fi
 
 
-#if [ ! -d "${ECLIPSE_INSTALL_DIR}" ]; then 
-#  echo ""
-#  echo "###############################################################################"
-#  echo "Install Ecipse"
-#  echo "###############################################################################"
-#  echo ""
-#  if [ ! -d "${ECLIPSE_SRC_DIR}" ]; then 
-#    rm -rf ${ECLIPSE_SRC_DIR}
-#  fi
-#  mkdir ${ECLIPSE_SRC_DIR}
+if [ ! -d "${ECLIPSE_INSTALL_DIR}" ]; then 
+  echo ""
+  echo "###############################################################################"
+  echo "Install Ecipse"
+  echo "###############################################################################"
+  echo ""
+  if [ ! -d "${ECLIPSE_SRC_DIR}" ]; then 
+    rm -rf ${ECLIPSE_SRC_DIR}
+  fi
+  mkdir ${ECLIPSE_SRC_DIR}
 
-#  wget ${ECLIPSE_SRC_REPO}/${ECLIPSE_TAR_NAME} -P ${ECLIPSE_SRC_DIR}
+  wget ${ECLIPSE_SRC_REPO}/${ECLIPSE_TAR_NAME} -P ${ECLIPSE_SRC_DIR}
 
-#  mkdir ${ECLIPSE_INSTALL_DIR}
-#  tar -zxvf ${ECLIPSE_SRC_DIR}/${ECLIPSE_TAR_NAME} -C ${ECLIPSE_INSTALL_DIR}
-#fi
+  mkdir ${ECLIPSE_INSTALL_DIR}
+  tar -zxvf ${ECLIPSE_SRC_DIR}/${ECLIPSE_TAR_NAME} -C ${ECLIPSE_INSTALL_DIR}
+fi
 
 
 if [ ! -d "${RTEMS_TOOLCHAIN_INSTALL_DIR}" ]; then 
