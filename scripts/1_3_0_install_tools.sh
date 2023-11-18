@@ -35,7 +35,7 @@ if [ ! -d "${QEMU_INSTALL_DIR}" ]; then
   fi
   mkdir ${QEMU_SRC_DIR}/build
   pushd ${QEMU_SRC_DIR}/build
-  ../configure --static --target-list="aarch64-softmmu microblazeel-softmmu" --prefix=${QEMU_INSTALL_DIR}
+  ../configure  --target-list="aarch64-softmmu microblazeel-softmmu" --prefix=${QEMU_INSTALL_DIR}
   make -j $(nproc)
   make install -j 1
   popd
